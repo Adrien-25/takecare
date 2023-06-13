@@ -45,7 +45,7 @@ Here are the environment variables you'll need to include in your .env file befo
 
 - ***GOOGLE_ID*** : This variable should contain your Google API client ID. It is used for authentication and authorization purposes when integrating with Google services.
 
-- GOOGLE_SECRET: This variable should contain your Google API client secret. It is used in conjunction with the client ID for authentication and authorization with Google.
+- ***GOOGLE_SECRET*** : This variable should contain your Google API client secret. It is used in conjunction with the client ID for authentication and authorization with Google.
 
 - ***MONGODB_URI*** : This variable should contain the connection string for your MongoDB database. It allows your Next.js app to connect to the MongoDB database and interact with it.
 
