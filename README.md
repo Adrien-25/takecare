@@ -36,3 +36,21 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Configuration with Environment Variables
+
+To successfully deploy your Next.js app on Vercel, you'll need to configure your environment variables. These variables contain sensitive information such as API keys, secrets, and connection strings. Storing them securely in environment variables ensures that your sensitive data remains protected.
+
+Here are the environment variables you'll need to include in your .env file before deploying your app:
+
+- ***GOOGLE_ID*** : This variable should contain your Google API client ID. It is used for authentication and authorization purposes when integrating with Google services.
+
+- GOOGLE_SECRET: This variable should contain your Google API client secret. It is used in conjunction with the client ID for authentication and authorization with Google.
+
+- ***MONGODB_URI*** : This variable should contain the connection string for your MongoDB database. It allows your Next.js app to connect to the MongoDB database and interact with it.
+
+- ***SECRET*** : This variable should be set to a secret key or passphrase used for encrypting session data and other sensitive information in your app.
+
+- ***S3_ACCESS_KEY*** : This variable should contain the access key for your AWS S3 bucket. It is used for authentication when interacting with the S3 storage service.
+
+- ***S3_SECRET_ACCESS_KEY*** : This variable should contain the secret access key for your AWS S3 bucket. It is used in conjunction with the access key for authentication with S3.
