@@ -98,8 +98,8 @@ function Categories({swal}) {
       <h1>Categories</h1>
       <label>
         {editedCategory
-          ? `Edit category ${editedCategory.name}`
-          : 'Create new category'}
+          ? `Modifier catégorie ${editedCategory.name}`
+          : 'Créer une nouvelle catégorie'}
       </label>
       <form onSubmit={saveCategory}>
         <div className="flex gap-1">

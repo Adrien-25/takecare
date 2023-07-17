@@ -6,15 +6,19 @@ import {ReactSortable} from "react-sortablejs";
 
 export default function ProductForm({
   _id,
+  reference:existingReference,
   title:existingTitle,
   description:existingDescription,
+  marque:existingMarque,
   price:existingPrice,
   images:existingImages,
   category:assignedCategory,
   properties:assignedProperties,
 }) {
+  const [reference,setReference] = useState(existingReference || '');
   const [title,setTitle] = useState(existingTitle || '');
   const [description,setDescription] = useState(existingDescription || '');
+  const [marque,setMarque] = useState(existingMarque || '');
   const [category,setCategory] = useState(assignedCategory || '');
   const [productProperties,setProductProperties] = useState(assignedProperties || {});
   const [price,setPrice] = useState(existingPrice || '');
@@ -31,7 +35,7 @@ export default function ProductForm({
   async function saveProduct(ev) {
     ev.preventDefault();
     const data = {
-      title,description,price,images,category,
+      reference,title,description,marque,price,images,category,
       properties:productProperties
     };
     if (_id) {
@@ -85,13 +89,19 @@ export default function ProductForm({
 
   return (
       <form onSubmit={saveProduct}>
-        <label>Product name</label>
+        <label>Référence du produit</label>
+        <input
+          type="number"
+          placeholder="Référence"
+          value={reference}
+          onChange={ev => setReference(ev.target.value)}/>
+        <label>Nom du produit</label>
         <input
           type="text"
-          placeholder="product name"
+          placeholder="Nom du produit"
           value={title}
           onChange={ev => setTitle(ev.target.value)}/>
-        <label>Category</label>
+        <label>Catégorie</label>
         <select value={category}
                 onChange={ev => setCategory(ev.target.value)}>
           <option value="">Uncategorized</option>
@@ -139,7 +149,7 @@ export default function ProductForm({
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
             </svg>
             <div>
-              Add image
+              Ajoute une image
             </div>
             <input type="file" onChange={uploadImages} className="hidden"/>
           </label>
@@ -150,16 +160,22 @@ export default function ProductForm({
           value={description}
           onChange={ev => setDescription(ev.target.value)}
         />
-        <label>Price (in USD)</label>
+        <label>Marque</label>
+        <textarea
+          placeholder="marque"
+          value={marque}
+          onChange={ev => setMarque(ev.target.value)}
+        />
+        <label>Prix (in USD)</label>
         <input
-          type="number" placeholder="price"
+          type="number" placeholder="prix"
           value={price}
           onChange={ev => setPrice(ev.target.value)}
         />
         <button
           type="submit"
           className="btn-primary">
-          Save
+          Enregistrer
         </button>
       </form>
   );
