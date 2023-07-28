@@ -75,7 +75,7 @@ export default function ProductForm({
     setIsUploading(true);
     console.log(file);
     try {
-      const storageRef = ref(storage, `images/prodcts/${file.name}`);
+      const storageRef = ref(storage, `images/products/${file.name}`);
       await uploadBytes(storageRef, file);
 
       // Get the URL of the uploaded image
