@@ -1,7 +1,9 @@
 import Layout from "@/components/Layout";
 import {useSession} from "next-auth/react";
 
+// Home component
 export default function Home() {
+  // Get the user session using the 'useSession' hook from next-auth
   const {data: session} = useSession();
   return <Layout>
     <div className="text-blue-900 flex justify-between">

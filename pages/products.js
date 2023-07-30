@@ -3,13 +3,20 @@ import Link from "next/link";
 import {useEffect, useState} from "react";
 import axios from "axios";
 
+// Products component
 export default function Products() {
+  // State to store the products fetched from the API
   const [products,setProducts] = useState([]);
+
+  // useEffect hook to fetch products data from the API on component mount
   useEffect(() => {
+    // Make a GET request to the '/api/products' endpoint to fetch products data
     axios.get('/api/products').then(response => {
       setProducts(response.data);
     });
   }, []);
+
+  // Return the JSX elements inside the 'Layout' component
   return (
     <Layout>
       <Link className="btn-primary" href={'/products/new'}>Ajouter un produit</Link>

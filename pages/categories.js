@@ -3,20 +3,28 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { withSwal } from "react-sweetalert2";
 
+// Categories component
 function Categories({ swal }) {
+  // State variables to store category data and form inputs
   const [editedCategory, setEditedCategory] = useState(null);
   const [name, setName] = useState("");
   const [parentCategory, setParentCategory] = useState("");
   const [categories, setCategories] = useState([]);
   const [properties, setProperties] = useState([]);
+
+  // useEffect hook to fetch categories data from the API when the component mounts
   useEffect(() => {
     fetchCategories();
   }, []);
+
+  // Function to fetch categories data from the API
   function fetchCategories() {
     axios.get("/api/categories").then((result) => {
       setCategories(result.data);
     });
   }
+
+  // Function to handle the form submission and save/update a category
   async function saveCategory(ev) {
     ev.preventDefault();
     const data = {
@@ -39,6 +47,8 @@ function Categories({ swal }) {
     setProperties([]);
     fetchCategories();
   }
+
+  // Function to edit a category
   function editCategory(category) {
     setEditedCategory(category);
     setName(category.name);
@@ -50,6 +60,8 @@ function Categories({ swal }) {
       }))
     );
   }
+
+  // Function to delete a category
   function deleteCategory(category) {
     swal
       .fire({
@@ -69,11 +81,15 @@ function Categories({ swal }) {
         }
       });
   }
+
+  // Function to add a new property input field
   function addProperty() {
     setProperties((prev) => {
       return [...prev, { name: "", values: "" }];
     });
   }
+
+  // Function to handle changes in the property name input
   function handlePropertyNameChange(index, property, newName) {
     setProperties((prev) => {
       const properties = [...prev];
@@ -81,6 +97,8 @@ function Categories({ swal }) {
       return properties;
     });
   }
+
+  // Function to handle changes in the property values input
   function handlePropertyValuesChange(index, property, newValues) {
     setProperties((prev) => {
       const properties = [...prev];
@@ -88,6 +106,8 @@ function Categories({ swal }) {
       return properties;
     });
   }
+
+  // Function to remove a property input field
   function removeProperty(indexToRemove) {
     setProperties((prev) => {
       return [...prev].filter((p, pIndex) => {
@@ -95,6 +115,8 @@ function Categories({ swal }) {
       });
     });
   }
+
+  // Return the JSX elements inside the 'Layout' component
   return (
     <Layout>
       <h1>Categories</h1>
