@@ -221,7 +221,7 @@ function Categories({ swal }) {
                 <tr key={category._id}>
                   <td>{category.name}</td>
                   <td>{category?.parent?.name}</td>
-                  <td>
+                  <td className="flex justify-end">
                     <button
                       onClick={() => editCategory(category)}
                       className="btn-default mr-1"

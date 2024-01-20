@@ -5,7 +5,7 @@ export default function Logo() {
   return (
     // Link component from Next.js to navigate to the home page when the logo is clicked
 
-    <Link href={"/"} className="flex gap-1">
+    <Link href={"/"} className="flex gap-1 text-nowrap	">
       {/* SVG logo */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +23,7 @@ export default function Logo() {
         />
       </svg>
       {/* Text representing the logo title */}
-      <span className="">Take Care Admin</span>
+      <span className="" style={{ whiteSpace: 'nowrap' }}>Take Care Admin</span>
     </Link>
   );
 }
