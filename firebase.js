@@ -20,7 +20,3 @@ const app = initializeApp(firebaseConfig);
 
 // Initialize Firebase using the configuration object
 export const storage = getStorage(app);
-
-
-
-
